@@ -1,9 +1,9 @@
 import streamlit as st
 import pickle
-import requests
+
 import numpy as np
 
-xgb_model = pickle.load(open(r'C:\Users\Lenovo\Downloads\B1T2_Project\xgbmodel.pkl','rb'))
+xgb_model = pickle.load(open('xgbmodel.pkl','rb'))
 
 @st.cache()
   
