@@ -9,7 +9,7 @@ xgb_model = pickle.load(open('xgbmodel.pkl','rb'))
   
 # defining the function which will make the prediction using the data which the user inputs 
 def prediction(log_budget, male_crew_count, male_cast_count, cast_count, crew_count, female_crew_count, people_in_dept_Editing, people_in_dept_Production, people_in_job_Producer, people_in_job_Casting,
-           people_in_dept_Visual_Effects, people_in_job_Editor, people_in_job_Art_Direction, female_cast_count, Keywords_count, production_companies_count, count_of_tagline_words, people_in_job_Screenplay,
+           people_in_dept_Visual_Effects, people_in_job_Editor, people_in_job_Art_Direction, female_cast_count, keywords_count, production_companies_count, count_of_tagline_words, people_in_job_Screenplay,
            have_collection, people_in_job_Production_Design, people_in_job_Executive_Producer, prodCountry_United_States_of_America):
 
     log_budget = np.log(log_budget)
@@ -25,7 +25,7 @@ def prediction(log_budget, male_crew_count, male_cast_count, cast_count, crew_co
         prodCountry_United_States_of_America = 0
 
     features = np.array([log_budget, male_crew_count, male_cast_count, cast_count, crew_count, female_crew_count, people_in_dept_Editing, people_in_dept_Production, people_in_job_Producer, people_in_job_Casting,
-           people_in_dept_Visual_Effects, people_in_job_Editor, people_in_job_Art_Direction, female_cast_count, Keywords_count, production_companies_count, count_of_tagline_words, people_in_job_Screenplay,
+           people_in_dept_Visual_Effects, people_in_job_Editor, people_in_job_Art_Direction, female_cast_count, keywords_count, production_companies_count, count_of_tagline_words, people_in_job_Screenplay,
            have_collection, people_in_job_Production_Design, people_in_job_Executive_Producer, prodCountry_United_States_of_America])
     # Making predictions 
     log_revenue = xgb_model.predict(features.reshape(1, -1))
@@ -108,7 +108,7 @@ def main():
                             min_value=0, max_value=6, step=1,
                             help="please enter number of people in working on casting")                         
 
-    Keywords_count = st.number_input('Count of Keywords:',
+    keywords_count = st.number_input('Count of Keywords:',
                                 min_value=0, max_value=150, step=1,
                                 help="please enter count of keywords")
 
@@ -126,7 +126,7 @@ def main():
 
     if st.button("Predict"): 
         result = prediction(log_budget, male_crew_count, male_cast_count, cast_count, crew_count, female_crew_count, people_in_dept_Editing, people_in_dept_Production, people_in_job_Producer, people_in_job_Casting,
-           people_in_dept_Visual_Effects, people_in_job_Editor, people_in_job_Art_Direction, female_cast_count, Keywords_count, production_companies_count, count_of_tagline_words, people_in_job_Screenplay,
+           people_in_dept_Visual_Effects, people_in_job_Editor, people_in_job_Art_Direction, female_cast_count, keywords_count, production_companies_count, count_of_tagline_words, people_in_job_Screenplay,
            have_collection, people_in_job_Production_Design, people_in_job_Executive_Producer, prodCountry_United_States_of_America) 
         st.success('Predicted Revenue of Movie: {} US Dollars'.format(result.item()))
         
