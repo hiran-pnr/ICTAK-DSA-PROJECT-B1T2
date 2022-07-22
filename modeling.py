@@ -1,7 +1,7 @@
 import pandas as pd
 
-X = pd.read_csv('/home/hirank/final_X.csv')
-y = pd.read_csv('/home/hirank/final_y.csv')
+X = pd.read_csv('final_X.csv')
+y = pd.read_csv('final_y.csv')
 
 from sklearn.model_selection import train_test_split
 X_train, X_valid, y_train, y_valid = train_test_split(X, y, random_state=42, test_size=0.20)
