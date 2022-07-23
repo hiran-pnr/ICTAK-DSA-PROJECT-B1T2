@@ -33,7 +33,7 @@ def prediction(log_budget, male_crew_count, male_cast_count, cast_count, crew_co
     return revenue
 
 def main():
-    st.markdown("<h1 style='text-align: center; color: yellow;'>TMDB BOX OFFICE REVENUE PREDICTOR</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align: center; color: red;'>TMDB BOX OFFICE REVENUE PREDICTOR</h1>", unsafe_allow_html=True)
 
     log_budget = st.number_input('Movie Budget (in Dollars):',
                         min_value=1.0, max_value=3.800000e+08,
