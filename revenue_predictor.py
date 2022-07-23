@@ -11,8 +11,8 @@ st.set_page_config(
      layout="centered",
      initial_sidebar_state="collapsed",
      menu_items={
-         'Get Help': 'hiransurendran505@gmail.com',
-         'Report a bug': 'hiransurendran505@gmail.com',
+         'Get Help': None,
+         'Report a bug': None,
          'About': "A web app developed by B1T2(Feb) of ICT Academy of Kerala for project related purpose."
      }
  )
